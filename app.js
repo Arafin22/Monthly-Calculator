@@ -11,6 +11,12 @@ const saveBtn = document.getElementById('save');
 const savingAmount = document.getElementById('saving-amount');
 const remainingBalance = document.getElementById('remaining-balance');
 
+
+function parseing(input){
+    let parseingValue =  parseFloat(input.value);
+    return parseingValue;
+}
+
 // calcutate button click and expanses amount calculate 
 calcutateBtn.addEventListener('click', function(e){
     e.preventDefault();
@@ -18,9 +24,9 @@ calcutateBtn.addEventListener('click', function(e){
     if(isNaN(incomeAmount) || incomeAmount<0 ){
         return alert('Please input valid amount of money in number format');
     }
-    let foodAmount = parseFloat(food.value);
-    let rentAmount = parseFloat(rent.value);
-    let colotheAmount = parseFloat(clothe.value);
+    let foodAmount = parseing(food);
+    let rentAmount = parseing(rent);
+    let colotheAmount = parseing(clothe);
 
     if((isNaN(foodAmount) || foodAmount<0 ) || (isNaN(rentAmount) || rentAmount<0 )|| (isNaN(colotheAmount) || colotheAmount<0 )){
         return alert('Please number format');
@@ -42,9 +48,9 @@ calcutateBtn.addEventListener('click', function(e){
 // saveing amount and remaining balance calculate 
 saveBtn.addEventListener('click',function(e){
     e.preventDefault();
-    let incomeAmount =  parseFloat(income.value);
+    let incomeAmount =  parseing(income);
     let balanceAmount = parseFloat(balance.innerText)
-    let persenteValue =  parseFloat(persentes.value);
+    let persenteValue =  parseing(persentes);
     if(isNaN(persenteValue) || persenteValue<0 ){
         return alert('Please input valid number format');
     }
