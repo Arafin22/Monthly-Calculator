@@ -38,3 +38,28 @@ calcutateBtn.addEventListener('click', function(e){
     rent.value="";
     clothe.value="";
 })
+
+// saveing amount and remaining balance calculate 
+saveBtn.addEventListener('click',function(e){
+    e.preventDefault();
+    let incomeAmount =  parseFloat(income.value);
+    let balanceAmount = parseFloat(balance.innerText)
+    let persenteValue =  parseFloat(persentes.value);
+    if(isNaN(persenteValue) || persenteValue<0 ){
+        return alert('Please input valid number format');
+    }
+    let savingAmounts = ((incomeAmount/100)*persenteValue);
+
+    if(balanceAmount<savingAmounts){
+        return alert('saving is geater then your balance')
+
+    }
+    savingAmount.innerText=savingAmounts;
+    let saving= parseFloat(savingAmount.innerText);
+
+    let remainingBalances = (balanceAmount-saving);
+
+
+    remainingBalance.innerText=remainingBalances;
+
+})
